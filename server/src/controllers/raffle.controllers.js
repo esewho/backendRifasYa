@@ -30,7 +30,7 @@ class RaffleController {
 		const raffles = await Raffle.findAll({
 			include: {
 				model: User,
-				attributes: ["id", "username", "email", "typeAccount"],
+				attributes: ["id", "username", "email", "accountType"],
 			},
 		})
 		return raffles
