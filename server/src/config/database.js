@@ -35,10 +35,16 @@ let capsEntries = entries.map((entry) => [
 ])
 sequelize.models = Object.fromEntries(capsEntries) // Convierte el array de arrays en un objeto
 
-const { Raffle, User } = sequelize.models
+const { Raffle, User, Ticket } = sequelize.models
 
 User.hasMany(Raffle, { foreignKey: "userId" })
 Raffle.belongsTo(User, { foreignKey: "userId" })
+
+User.hasMany(Ticket)
+Ticket.belongsTo(User)
+
+Raffle.hasMany(Ticket)
+Ticket.belongsTo(Raffle)
 
 module.exports = {
 	...sequelize.models,

@@ -37,6 +37,19 @@ class UserController {
 		})
 		return { user, token }
 	}
+
+	static async getUserWithRafflesById(userId) {
+		const user = await User.findByPk(userId, {
+			attributes: ["id", "username", "email"],
+			include: {
+				model: Raffle,
+				attributes: ["id", "title", "image", "isActive"],
+			},
+		})
+		if (!user) throw new Error("Usuario no encontrado")
+
+		return user
+	}
 }
 
 module.exports = UserController
