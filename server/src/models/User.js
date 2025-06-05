@@ -28,5 +28,13 @@ module.exports = (database) => {
 			type: DataTypes.STRING,
 			allowNull: true,
 		},
+		dni: {
+			type: DataTypes.STRING,
+			allowNull: true,
+		},
+		birthdate: {
+			type: DataTypes.DATE,
+			allowNull: false,
+		},
 	})
 }
