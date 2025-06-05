@@ -7,9 +7,9 @@ const RaffleRouter = Router()
 RaffleRouter.post("/", verifyToken, RaffleHandler.createRaffleHandler)
 RaffleRouter.get("/", verifyToken, RaffleHandler.getAllRafflesHandler)
 RaffleRouter.get("/:raffleId", verifyToken, RaffleHandler.getRafflesByIdHandler)
-RaffleRouter.put(":/raffleId", verifyToken, RaffleHandler.updateRaffleHandler)
+RaffleRouter.put("/:raffleId", verifyToken, RaffleHandler.updateRaffleHandler)
 RaffleRouter.delete(
-	":/raffleId",
+	"/:raffleId",
 	verifyToken,
 	RaffleHandler.deleteRaffleHandler
 )
