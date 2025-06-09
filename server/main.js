@@ -7,10 +7,10 @@ const routes = require("../server/routes")
 const PORT = 3001 || PORT
 
 const server = express()
+server.use(cors())
 server.use(morgan("dev"))
 server.use(express.json())
 server.use("/", routes)
-server.use(cors())
 
 conn.sync({ force: true }).then(() => {
 	server.listen(PORT, () => {

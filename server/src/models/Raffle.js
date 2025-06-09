@@ -28,11 +28,15 @@ module.exports = (database) => {
 		},
 		endDate: {
 			type: DataTypes.DATE,
-			allowNull: false,
+			allowNull: true,
 		},
 		isActive: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: true,
+		},
+		image: {
+			type: DataTypes.BLOB,
+			allowNull: true,
 		},
 		// models/Raffle.js
 		userId: {
