@@ -3,9 +3,9 @@ const { DataTypes } = require("sequelize")
 module.exports = (database) => {
 	database.define("Ticket", {
 		id: {
-			type: DataTypes.UUIDV4,
+			type: DataTypes.UUID,
 			primaryKey: true,
-			defaultValue: DataTypes.UUIDV4,
+			defaultValue: DataTypes.UUID,
 		},
 		number: {
 			type: DataTypes.INTEGER,

@@ -4,7 +4,7 @@ const { Router } = require("express")
 
 const router = Router()
 
-router.use("/users", UserRouter)
-router.use("/raffles", RaffleRouter)
+router.use("/user", UserRouter)
+router.use("/raffle", RaffleRouter)
 
 module.exports = router

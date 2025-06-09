@@ -3,9 +3,9 @@ const { DataTypes } = require("sequelize")
 module.exports = (database) => {
 	database.define("User", {
 		id: {
-			type: DataTypes.UUIDV4,
+			type: DataTypes.INTEGER,
 			primaryKey: true,
-			defaultValue: DataTypes.UUIDV4,
+			defaultValue: DataTypes.INTEGER,
 		},
 		username: {
 			type: DataTypes.STRING,

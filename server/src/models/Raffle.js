@@ -3,9 +3,9 @@ const { DataTypes } = require("sequelize")
 module.exports = (database) => {
 	database.define("Raffle", {
 		id: {
-			type: DataTypes.UUIDV4,
+			type: DataTypes.UUID,
 			primaryKey: true,
-			defaultValue: DataTypes.UUIDV4,
+			defaultValue: DataTypes.UUID,
 		},
 		title: {
 			type: DataTypes.STRING,
@@ -33,6 +33,14 @@ module.exports = (database) => {
 		isActive: {
 			type: DataTypes.BOOLEAN,
 			defaultValue: true,
+		},
+		// models/Raffle.js
+		userId: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: "Users",
+				key: "id",
+			},
 		},
 	})
 }
