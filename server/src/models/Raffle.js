@@ -1,11 +1,11 @@
-const { DataTypes } = require("sequelize")
+const { DataTypes, UUIDV4 } = require("sequelize")
 
 module.exports = (database) => {
 	database.define("Raffle", {
 		id: {
 			type: DataTypes.UUID,
 			primaryKey: true,
-			defaultValue: DataTypes.UUID,
+			defaultValue: UUIDV4,
 		},
 		title: {
 			type: DataTypes.STRING,
@@ -36,11 +36,13 @@ module.exports = (database) => {
 		},
 		// models/Raffle.js
 		userId: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.UUID,
 			references: {
 				model: "Users",
 				key: "id",
 			},
+			onDelete: "CASCADE",
+			onUpdate: "CASCADE",
 		},
 	})
 }

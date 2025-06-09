@@ -1,11 +1,11 @@
-const { DataTypes } = require("sequelize")
+const { DataTypes, UUIDV4 } = require("sequelize")
 
 module.exports = (database) => {
 	database.define("User", {
 		id: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.UUID,
 			primaryKey: true,
-			defaultValue: DataTypes.INTEGER,
+			defaultValue: UUIDV4,
 		},
 		username: {
 			type: DataTypes.STRING,
@@ -37,7 +37,7 @@ module.exports = (database) => {
 		},
 		birthdate: {
 			type: DataTypes.DATE,
-			allowNull: false,
+			allowNull: true,
 		},
 	})
 }

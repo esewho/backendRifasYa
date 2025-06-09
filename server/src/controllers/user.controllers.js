@@ -7,7 +7,7 @@ class UserController {
 	constructor() {}
 
 	static async registerUser(username, email, password) {
-		const existingUser = User.findOne({ where: { email } })
+		const existingUser = await User.findOne({ where: { email } })
 		if (existingUser) throw new Error("Email ya registrado")
 
 		const hashedPassword = await bcrypt.hash(password, 10)
