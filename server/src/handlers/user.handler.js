@@ -14,7 +14,7 @@ class UserHandler {
 			)
 			res.status(200).json({ user, token })
 		} catch (error) {
-			res.status(400).json({ error: "Error al registrarse" })
+			res.status(400).json({ error: error.message })
 		}
 	}
 
@@ -25,7 +25,7 @@ class UserHandler {
 			const { user, token } = await UserController.loginUser(email, password)
 			res.status(200).json({ user, token })
 		} catch (error) {
-			res.status(400).json({ error: "Error al loguearse" })
+			res.status(400).json({ error: error.message })
 		}
 	}
 
