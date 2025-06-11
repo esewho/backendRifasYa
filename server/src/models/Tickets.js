@@ -7,9 +7,17 @@ module.exports = (database) => {
 			primaryKey: true,
 			defaultValue: UUIDV4,
 		},
-		number: {
-			type: DataTypes.INTEGER,
+		userId: {
+			type: DataTypes.UUID,
 			allowNull: false,
+		},
+		raffleId: {
+			type: DataTypes.UUID,
+			allowNull: true,
+		},
+		used: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: false,
 		},
 	})
 }

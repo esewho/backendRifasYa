@@ -1,6 +1,7 @@
 const { Raffle, User } = require("../config/database")
 
 class RaffleController {
+	constructor() {}
 	static async createRaffle({
 		title,
 		description,
