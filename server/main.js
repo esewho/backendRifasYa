@@ -2,7 +2,7 @@ const { conn } = require("./src/config/database")
 const express = require("express")
 const morgan = require("morgan")
 const cors = require("cors")
-const routes = require("../server/routes")
+const routes = require("./src/routes")
 
 const PORT = 3001 || PORT
 

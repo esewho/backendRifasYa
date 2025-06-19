@@ -6,3 +6,5 @@ const TicketRouter = Router()
 
 TicketRouter.post("/", verifyToken, TicketHandler.createTicketHandler)
 TicketRouter.delete("/", verifyToken, TicketHandler.removeTicketHandler)
+
+module.exports = TicketRouter

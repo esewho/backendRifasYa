@@ -1,6 +1,6 @@
-const RaffleHandler = require("../src/handlers/raffle.handler")
+const RaffleHandler = require("../handlers/raffle.handler")
 const { Router } = require("express")
-const verifyToken = require("../src/middlewares/auth.middleware")
+const verifyToken = require("../middlewares/auth.middleware")
 
 const RaffleRouter = Router()
 
