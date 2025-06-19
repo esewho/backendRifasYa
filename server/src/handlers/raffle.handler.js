@@ -7,7 +7,7 @@ class RaffleHandler {
 			const { title, description, pricePerTicket, maxTickets, endDate, image } =
 				req.body
 
-			const raffle = RaffleController.createRaffle({
+			const raffle = await RaffleController.createRaffle({
 				title,
 				description,
 				pricePerTicket,
@@ -60,7 +60,7 @@ class RaffleHandler {
 	static async deleteRaffleHandler(req, res) {
 		try {
 			const { raffleId } = req.params
-			const { userId } = req.userId
+			const userId = req.userId
 			await RaffleController.deleteRaffle(raffleId, userId)
 			res.status(200).json({ message: "Rifa eliminada correctamente" })
 		} catch (error) {

@@ -9,7 +9,7 @@ class RaffleController {
 		maxTickets,
 		endDate,
 		image,
-		creatorID,
+		creatorId,
 	}) {
 		const newRaffle = await Raffle.create({
 			title,
@@ -18,7 +18,7 @@ class RaffleController {
 			maxTickets,
 			endDate,
 			image,
-			userId: creatorID,
+			userId: creatorId,
 			isActive: true,
 		})
 		return newRaffle
@@ -47,7 +47,12 @@ class RaffleController {
 	}
 
 	static async updateRaffle(raffleId, updateData, userId) {
-		const raffle = await Raffle.findByPk(raffleId)
+		const raffle = await Raffle.findByPk(raffleId, {
+			include: {
+				model: User,
+				attributes: ["email", "username"],
+			},
+		})
 		if (!raffle) throw new Error("Rifa no encontrada")
 
 		if (raffle.userId !== userId)
