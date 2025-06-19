@@ -14,6 +14,26 @@ class TicketHandler {
 			res.status(400).json({ error: error.message })
 		}
 	}
+
+	static async removeTicketHandler(req, res) {
+		try {
+			const userId = req.userId
+			const { raffleId, amount } = req.body
+
+			if (!raffleId) {
+				return res.status(400).json({ error: error.message })
+			}
+
+			const removedTickets = await TicketController.removeTicket(
+				userId,
+				raffleId,
+				amount
+			)
+			res.status(200).json(removedTickets)
+		} catch (error) {
+			res.status(400).json({ error: error.message })
+		}
+	}
 }
 
 module.exports = TicketHandler

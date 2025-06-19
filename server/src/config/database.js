@@ -40,6 +40,8 @@ const { Raffle, User, Ticket } = sequelize.models
 User.hasMany(Raffle, { foreignKey: "userId" })
 Raffle.belongsTo(User, { foreignKey: "userId" })
 
+
+
 User.hasMany(Ticket)
 Ticket.belongsTo(User)
 

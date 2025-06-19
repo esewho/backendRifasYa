@@ -1,6 +1,6 @@
-const UserHandler = require("../src/handlers/user.handler")
+const UserHandler = require("../handlers/user.handler")
 const { Router } = require("express")
-const verifyToken = require("../src/middlewares/auth.middleware")
+const verifyToken = require("../middlewares/auth.middleware")
 
 const UserRouter = Router()
 
