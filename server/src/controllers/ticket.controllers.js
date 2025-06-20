@@ -4,12 +4,21 @@ const Tickets = require("../models/Tickets")
 class TicketController {
 	constructor() {}
 
-	static async buyTicket(userId, amount) {
+	static async buyTicket(userId, raffleId, amount) {
+		const raffle = await Raffle.findByPk(raffleId)
 		if (!amount || amount <= 0) throw new Error("Cantidad inválida")
+		if (!raffle) throw new Error("Rifa no encontrada")
+		if (!raffle.isActive) throw new Error("La rifa está inactiva")
+
+		const soldTickets = await Ticket.count({ where: { raffleId } })
+
+		if (soldTickets + amount > raffle.maxTickets) {
+			throw new Error("No hay suficientes tickets disponibles")
+		}
 
 		const tickets = await Promise.all(
 			Array.from({ length: amount }).map(() => {
-				return Ticket.create({ userId })
+				return Ticket.create({ userId, raffleId })
 			})
 		)
 		return tickets
